@@ -28,10 +28,16 @@
             <div class="row">
                 <div class="col-12">
                     
-                    <form action="#">
+                    <form action="{{ route('admin.category.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label>Название</label>
-                            <input type="text" class="form-control" placeholder="Введите название категории">
+                            <input type="text" class="form-control" name="title" placeholder="Введите название категории">
+                            @error('title')
+                            <div class="text-danger">
+                                Это поле необходимо заполнить  {{ $message }}
+                            </div>
+                            @enderror
                             <input type="submit" class="btn btn-primary" value="Добавить">
                         </div>
                     </form>
