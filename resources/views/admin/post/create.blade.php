@@ -60,6 +60,11 @@
                                     <span class="input-group-text">Загрузить</span>
                                 </div>
                             </div>
+                            @error('content')
+                            <div class="text-danger">
+                                Это поле необходимо заполнить  {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>Добавить главное изображение</label>
@@ -72,6 +77,26 @@
                                     <span class="input-group-text">Загрузить</span>
                                 </div>
                             </div>
+                            @error('content')
+                            <div class="text-danger">
+                                Это поле необходимо заполнить  {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Выберите категорию</label>
+                            <select name="category_id" class="form-control">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $category->id == old('category_id') ? 'selected' : '' }}>
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('content')
+                            <div class="text-danger">
+                                Это поле необходимо заполнить  {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Добавить">
