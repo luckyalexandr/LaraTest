@@ -23,7 +23,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('/', 'IndexController');
     });
 
-    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
+    Route::group(['namespace' => 'Category', 'prefix' => 'category'], function () {
         Route::get('/', 'IndexController')->name('admin.category.index');
         Route::get('/create', 'CreateController')->name('admin.category.create');
         Route::post('/', 'StoreController')->name('admin.category.store');
