@@ -44,10 +44,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
+                    <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tags"></i>
                         <p>
-                            Kanban Board
+                            Тэги
                         </p>
                     </a>
                 </li>
