@@ -99,6 +99,16 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label>Тэги</label>
+                            <select name="tag_ids[]" class="form-control select2" data-placeholder="Выберите тэги" multiple="multiple">
+                                @foreach($tags as $tag)
+                                    <option {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : '' }} value="{{ $tag->id }}">
+                                        {{ $tag->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Добавить">
                         </div>
                     </form>
