@@ -31,7 +31,7 @@
                     <form action="{{ route('admin.user.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label>Название</label>
+                            <label>Имя</label>
                             <input type="text" class="form-control" name="name" placeholder="Введите имя пользовалеля">
                             @error('name')
                             <div class="text-danger">
@@ -40,7 +40,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Название</label>
+                            <label>E-mail</label>
                             <input type="email" class="form-control" name="email" placeholder="Введите почту">
                             @error('email')
                             <div class="text-danger">
@@ -49,9 +49,24 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Название</label>
+                            <label>Пароль</label>
                             <input type="password" class="form-control" name="password" placeholder="Введите пароль">
                             @error('password')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Выберите роль</label>
+                            <select name="role" class="form-control">
+                                @foreach($roles as $id => $role)
+                                    <option value="{{ $id }}" {{ $id == old('role') ? 'selected' : '' }}>
+                                        {{ $role }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('role')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
