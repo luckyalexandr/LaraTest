@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавление категории</h1>
+                    <h1 class="m-0">Добавление пользователя</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -28,16 +28,36 @@
             <div class="row">
                 <div class="col-12">
                     
-                    <form action="{{ route('admin.category.store') }}" method="POST">
+                    <form action="{{ route('admin.user.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Название</label>
-                            <input type="text" class="form-control" name="title" placeholder="Введите название категории">
-                            @error('title')
+                            <input type="text" class="form-control" name="name" placeholder="Введите имя пользовалеля">
+                            @error('name')
                             <div class="text-danger">
-                                Это поле необходимо заполнить  {{ $message }}
+                                {{ $message }}
                             </div>
                             @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Название</label>
+                            <input type="email" class="form-control" name="email" placeholder="Введите почту">
+                            @error('email')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Название</label>
+                            <input type="password" class="form-control" name="password" placeholder="Введите пароль">
+                            @error('password')
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Добавить">
                         </div>
                     </form>
